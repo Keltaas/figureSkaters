@@ -57,3 +57,16 @@ class Points(models.Model):
 
     def __str__(self):
         return str(self.skater) + " " + str(self.element) + " " + str(self.total_score)
+
+
+class Result(models.Model):
+    position = models.IntegerField()
+    skater = models.ForeignKey(Skaters, on_delete=models.PROTECT)
+    nation = models.ForeignKey(Nation, on_delete=models.PROTECT)
+    score = models.FloatField()
+    SP = models.IntegerField()
+    FS = models.IntegerField()
+    competition = models.ForeignKey(Competition, on_delete=models.PROTECT)
+
+    def __str__(self):
+        return str(self.position) + " " + str(self.score)

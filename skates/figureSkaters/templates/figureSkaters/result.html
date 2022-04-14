@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% if list_skaters %}
+    <table>
+        <tr><th>FPl</th><th>Skater</th><th>Nation</th><th>Score</th><th>SP</th><th>FS</th></tr>
+        {% for line in list_skaters %}
+            <tr><td>{{ line.position }}</td><td>{{ line.skater }}</td><td>{{ line.nation }}</td>
+            <td>{{ line.score }}</td><td>{{ line.SP }}</td><td>{{ line.FS }}</td></tr>
+        {% endfor %}
+    </table>
+
+{% endif %}
+</body>
+</html>
