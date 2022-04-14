@@ -1,6 +1,8 @@
-from django.http import HttpResponse
-from django.shortcuts import render
+from .models import Points
+from django.views.generic import ListView
 
 
-def index(request):
-    return HttpResponse("Hello")
+class PointsTable(ListView):
+    model = Points
+    template_name = "figureSkaters/base.html"
+    context_object_name = "list_elements"
