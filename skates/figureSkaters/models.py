@@ -27,3 +27,33 @@ class Competition(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class Elements(models.Model):
+    name = models.CharField(max_length=255)
+
+    def __str__(self):
+        return self.name
+
+
+class Skaters(models.Model):
+    name = models.CharField(max_length=255)
+    nation = models.ForeignKey(Nation, on_delete=models.PROTECT)
+    category = models.ForeignKey(Category, on_delete=models.PROTECT)
+
+    def __str__(self):
+        return self.name
+
+
+class Points(models.Model):
+    skater = models.ForeignKey(Skaters, on_delete=models.PROTECT)
+    competition = models.ForeignKey(Competition, on_delete=models.PROTECT)
+    segment = models.ForeignKey(Segment, on_delete=models.PROTECT)
+    element = models.ForeignKey(Elements, on_delete=models.PROTECT)
+    base_value = models.FloatField()
+    GOE = models.FloatField()
+    judges_score = models.TextField()
+    total_score = models.FloatField()
+
+    def __str__(self):
+        return str(self.skater) + " " + str(self.element) + " " + str(self.total_score)
