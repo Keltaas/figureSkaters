@@ -5,15 +5,8 @@
     <title>Title</title>
 </head>
 <body>
-{% if list_elements %}
-    <table>
-        <tr><th>Skater</th><th>element</th><th>base value</th><th>GOE</th><th>total score</th></tr>
-        {% for line in list_elements %}
-            <tr><td>{{ line.skater }}</td><td>{{ line.element }}</td><td>{{ line.base_value }}</td>
-            <td>{{ line.GOE }}</td><td>{{ line.total_score }}</td></tr>
-        {% endfor %}
-    </table>
+{% block content %}
 
-{% endif %}
+{% endblock %}
 </body>
 </html>

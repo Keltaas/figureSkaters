@@ -69,4 +69,4 @@ class Result(models.Model):
     competition = models.ForeignKey(Competition, on_delete=models.PROTECT)
 
     def __str__(self):
-        return str(self.position) + " " + str(self.score)
+        return str(self.skater) + " " + str(self.score)

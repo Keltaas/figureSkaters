@@ -1,0 +1,7 @@
+{% extends "figureSkaters/base.html" %}
+
+{% block content %}
+    {% for line in list_of_competition %}
+        <a href="#">{{ line.name }}</a>
+    {% endfor %}
+{% endblock %}
