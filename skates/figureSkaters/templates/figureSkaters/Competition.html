@@ -2,6 +2,6 @@
 
 {% block content %}
     {% for line in list_of_competition %}
-        <a href="#">{{ line.name }}</a>
+        <a href="{% url 'categories' line.pk %}">{{ line.name }}</a>
     {% endfor %}
 {% endblock %}

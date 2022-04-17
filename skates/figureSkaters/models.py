@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 
 
 class Nation(models.Model):
@@ -43,6 +44,14 @@ class Skaters(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class CategoriesOfCompetition(models.Model):
+    competition = models.ForeignKey(Competition, on_delete=models.PROTECT)
+    category = models.ForeignKey(Category, on_delete=models.PROTECT)
+
+    def __str__(self):
+        return str(self.competition)
 
 
 class Points(models.Model):

@@ -1,12 +1,21 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link type="text/css" href="{% static 'figureSkaters/CSS/style.css' %}" rel="stylesheet">
 </head>
 <body>
-{% block content %}
+<header></header>
+<div class="left-bar-side">
+    <a href="{% url 'competitions'%}">Соревнования</a>
+</div>
+<div class="content">
+    {% block content %}
 
-{% endblock %}
+    {% endblock %}
+</div>
+<footer></footer>
 </body>
 </html>
