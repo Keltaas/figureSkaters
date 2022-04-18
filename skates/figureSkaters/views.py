@@ -7,6 +7,9 @@ class PointsTable(ListView):
     template_name = "figureSkaters/detailResult.html"
     context_object_name = "list_elements"
 
+    def get_queryset(self):
+        return Points.objects.filter(skater__pk=self.request.GET.get("skater", None))
+
 
 class ResultTable(ListView):
     model = Result
@@ -14,7 +17,8 @@ class ResultTable(ListView):
     context_object_name = "list_skaters"
 
     def get_queryset(self):
-        return Result.objects.filter(competition__pk=self.kwargs.get("slug", None))
+        return Result.objects.filter(competition__pk=self.request.GET.get("competition", None),
+                                     skater__category__pk=self.request.GET.get("category", None))
 
 
 class ListCompetition(ListView):

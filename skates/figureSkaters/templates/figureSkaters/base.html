@@ -8,13 +8,15 @@
 </head>
 <body>
 <header></header>
-<div class="left-bar-side">
-    <a href="{% url 'competitions'%}">Соревнования</a>
-</div>
-<div class="content">
-    {% block content %}
+<div>
+    <div class="left-bar-side">
+        <a href="{% url 'competitions'%}">Соревнования</a>
+    </div>
+    <div class="content">
+        {% block content %}
 
-    {% endblock %}
+        {% endblock %}
+    </div>
 </div>
 <footer></footer>
 </body>
