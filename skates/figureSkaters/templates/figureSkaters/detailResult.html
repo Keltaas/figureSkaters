@@ -1,14 +1,18 @@
 {% extends "figureSkaters/base.html" %}
 
 {% block content %}
-    {% if list_elements %}
-        <table>
-            <tr><th>Skater</th><th>element</th><th>base value</th><th>GOE</th><th>total score</th></tr>
-            {% for line in list_elements %}
-                <tr><td>{{ line.skater }}</td><td>{{ line.element }}</td><td>{{ line.base_value }}</td>
-                <td>{{ line.GOE }}</td><td>{{ line.total_score }}</td></tr>
-            {% endfor %}
-        </table>
-
-    {% endif %}
+    <h1 class="competition">{{ competition }}</h1>
+    <table>
+        <caption>{{ skater }}</caption>
+        <tr><th>Element</th><th>Base value</th><th>GOE</th><th>Judges score</th><th>Total score</th></tr>
+        {% for line in list_elements %}
+            <tr>
+                <td>{{ line.element }}</td>
+                <td>{{ line.base_value }}</td>
+                <td>{{ line.GOE }}</td>
+                <td>{{ line.judges_score }}</td>
+                <td>{{ line.total_score }}</td>
+            </tr>
+        {% endfor %}
+    </table>
 {% endblock %}

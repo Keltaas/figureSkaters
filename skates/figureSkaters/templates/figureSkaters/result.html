@@ -1,20 +1,19 @@
 {% extends "figureSkaters/base.html" %}
 
 {% block content %}
-    {% if list_skaters %}
-        <table>
-            <tr><th>FPl</th><th>Skater</th><th>Nation</th><th>Score</th><th>SP</th><th>FS</th></tr>
-            {% for line in list_skaters %}
-                <tr>
-                    <td>{{ line.position }}</td>
-                    <td>{{ line.skater }}</td>
-                    <td>{{ line.nation }}</td>
-                    <td>{{ line.score }}</td>
-                    <td><a href="{% url 'detail' %}?skater={{line.skater.pk}}">{{ line.SP }}</a></td>
-                    <td>{{ line.FS }}</td>
-                </tr>
-            {% endfor %}
-        </table>
-
-    {% endif %}
+    <h1 class="competition">{{ competition }}</h1>
+    <table>
+        <caption>Result</caption>
+        <tr><th>FPl</th><th>Skater</th><th>Nation</th><th>Score</th><th>SP</th><th>FS</th></tr>
+        {% for line in list_skaters %}
+            <tr>
+                <td>{{ line.position }}</td>
+                <td>{{ line.skater }}</td>
+                <td>{{ line.nation }}</td>
+                <td>{{ line.score }}</td>
+                <td><a href="{% url 'detail' %}?skater={{line.skater.pk}}&segment=1">{{ line.SP }}</a></td>
+                <td><a href="{% url 'detail' %}?skater={{line.skater.pk}}&segment=2">{{ line.FS }}</a></td>
+            </tr>
+        {% endfor %}
+    </table>
 {% endblock %}
